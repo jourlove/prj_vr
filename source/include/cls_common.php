@@ -32,11 +32,12 @@ class Common{
 	  else if($type=='html'){
 	  	$char = preg_replace("(\\\\+')","'",$char);  //连续反斜杠加单引号，处理为单引号
   		$char = str_replace("'","\'",$char);  //单引号添加反斜杠
-      $char = str_replace('"',"&quot;","\\\"",$char);  //单引号添加反斜杠
+        //$char = str_replace('"',"&quot;","\\\"",$char);  //单引号添加反斜杠
+          $char = str_replace('"',"&quot;",$char);
   		$char = str_replace("<?","&lt;?",$char);  //转义php的声明符
-  		$char = str_replace("?>","?&gt;",$char); 
+  		$char = str_replace("?>","?&gt;",$char);
   		$char = str_replace("<script","&lt;script",$char);  //转义script声明符
-  		$char = str_replace("</script>","&lt;/script&gt;",$char); 
+  		$char = str_replace("</script>","&lt;/script&gt;",$char);
       // $char = preg_replace('/\r|\n|\t/', '', $char);
 	  }else if($type == 'json'){
       
