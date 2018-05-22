@@ -1470,13 +1470,16 @@
         margin-top: 0;
         float:left;
     }
-
+/*
+    全景界面 手机菜单栏边框
+ */
     .img_desc_container_min {
-        /*width: 30px;*/
+        width: 45px;
         margin-left: 0px;
         margin-right: 0px;
         /*position:relative;*/
     }
+
     .img_add{
         margin-left: 4px;
     }
@@ -1489,20 +1492,24 @@
     }
 
     /*
+    全景界面 手机版 菜单文字
+    */
     .img_desc_min {
-        height: 12px;
-        line-height: 12px;
-        text-shadow: 1.5px 1.5px 1.5px #000;
-        font-size: 6px;
-
+        font-size:14px;
     }
-    /*width:50px;
+    /*
+    height: 12px;
+        line-height: 12px;
+    width:50px;
     position: absolute;
     left:-10px;*/
 
 
+    /*
+        场景选择文字宽度 手机版
+     */
     .scene-choose-width {
-        width: 30px;
+        width: 60px;
     }
 
     #loginModal .modal-dialog {
