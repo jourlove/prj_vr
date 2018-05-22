@@ -19,4 +19,4 @@ rewrite ^/add/([a-zA-Z0-9_]+)$                   /add.php?module=$1   last;
 
 rewrite ^/index.html$                             /index.php         		last;
 rewrite ^/([a-zA-Z0-9_]+)$                   /index.php?module=$1   last; 
-rewrite ^/people/([0-9]+)$                   /index.php?module=people&uid=$1   last; 
+rewrite ^/people/([0-9]+)$                   /index.php?module=people&uid=$1   last;
