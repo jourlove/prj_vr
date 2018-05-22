@@ -20,7 +20,7 @@ error_reporting(E_ALL^E_WARNING^E_NOTICE);
 /* 数据库配置 */
 $db_type = 'mysql';   //数据库类型
 
-$db_host = 'localhost';
+$db_host = '172.16.0.15';
 
 $db_user = 'root';
 
