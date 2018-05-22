@@ -1,0 +1,104 @@
+
+<!-- content -->
+		<!-- 搜索 -->
+
+<div class="search-content body-content">
+
+<!-- 搜索表单 -->
+	<div class="search-input">
+		<form action="/search?word="+word">
+			<div class="input-group">
+				<input name="word" class="form-control" value="" type="text"placeholder="搜索作品/摄影师/话题">
+				<span class="input-group-btn">
+                  <button type="submit" class="btn btn-blue">搜索</button>
+                </span>
+			</div>
+		</form>
+    </div>
+	
+	
+
+	
+	<!-- 搜索类型 -->
+
+	
+	  <!-- 作品列表 -->
+<!--一个卡片列表行-->
+<div class="container">
+	<div class="row pano-list">
+		<!--卡片列表循环-->
+		<!-- <div class="col-md-3 col-sm-6 col-xs-12">
+		 <div class="card channel-box">
+		  <h2>频道</h2>
+		  <ul class="channel">
+		   <li><a href="/pictures?tag=0" {if $tag===0}class="active"{/if}>全部</a></li>
+		   <li><a href="/pictures?tag=-1" {if $tag===-1}class="active"{/if}>编辑推荐</a></li>
+		   {foreach $picture_tags as $v}
+		   	<li><a href="/pictures?tag={$v.id}" {if $tag==$v.id}class="active"{/if}>{$v.name}</a></li>
+		   {/foreach}
+		   </ul>
+		   <div class="clearfix"></div>
+		  </div>
+		 </div> -->
+		 
+		{foreach $list.res as $k=>$v}
+		
+		 <div class="col-md-3 col-sm-6 col-xs-12">
+					<!-- 作品链接 -->
+				<a class="pano-item" target="_blank" href="/tour/{$v.view_uuid}" title="{$v.name}">
+					<!-- 作品图片 -->
+					<div class="pano-item-img">
+                    <img class="lazy " data-original="{$v.thumb_path}" src="{$v.thumb_path}"onerror="javascript:this.src='/static/images/default_avatar.jpg';" data-was-processed="true">
+											</div>
+					<!-- 作品信息 -->
+					<div class="pano-item-info" id="authorDiv">
+						<!-- 摄影师信息 -->
+						<object>
+					<a class="pano-item-author-avatar" target="_blank"  title="{$v.nickname}">
+				   <img class="lazy" src="{$v.avatar}" data-original="{$v.avatar}" data-was-processed="true"></a>
+						</object>
+						<!-- 作品标题 -->
+						<h3 class="pano-item-title ellipsis">
+							{$v.name}
+						</h3>
+						<!-- 被收藏数 -->
+						<object class="hidden-xs">
+							<a class="pano-item-collect" href="javascript:;" title="收藏数 0">
+								<i class="iconfont icon-nocollect"></i>
+								<i class="iconfont icon-collected"></i>
+								<span>{$v.browsing_num}</span>{$v.browsing_num}
+							</a>
+						</object>
+					</div>
+					<!-- 浏览数和点赞 -->
+					<div class="pano-item-label">
+						<div class="pano-item-views pull-left">
+							<i class="iconfont"></i>
+							{$v.browsing_num}
+						</div>
+						<div class="pano-item-thumbs-up pull-right">
+							<i class="iconfont"></i>{$v.praised_num}
+						</div>
+					</div>
+				</a>
+			</div>
+		{/foreach}	         
+		<!--卡片列表循环结束-->	
+	</div>
+</div>
+<!--一个卡片列表行结束-->
+<div class="list-page">{include file="../library/pages.lbi"}</div>
+</div>
+<script>
+	$(function(){
+		var page = {$page};
+		var count = {$list.count};
+		if(page==1){
+			if(count > 0)
+				alert_notice("为您找到"+count+"条结果",'success');
+			else 
+				alert_notice("未能查询到结果",'success');
+		}
+		$("#search_box").val('{$word}');
+	})
+</script>

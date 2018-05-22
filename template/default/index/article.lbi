@@ -1,0 +1,30 @@
+<style type="text/css">
+h2.art-tit{
+margin:0;color:#888;font-weight:normal;padding:10px;background:#fff;border-bottom:1px solid #e4e4e4;
+}
+.art-box{
+border:1px solid #e4e4e4;margin-bottom:20px;
+}
+.art-content{
+padding:10px;overflow:hidden;
+}
+.art-content img{
+max-width:100%;
+}
+</style>
+
+<div class="about-container body-content">
+<DIV class="top-banner hidden-xs"><IMG class="bc-img" src="./template/{$_lang.moban}/images/about-bg.jpg"></DIV><!-- container -->
+<DIV class="container"><!-- 标题 -->
+
+<H1><I class="iconfont"></I>{$a.title} </H1><!-- 文本 -->
+	
+		<div class="clearfix"></div>
+	
+		<div class="about-article">
+		{$a.content}
+		</div>
+	
+	</div>
+
+</div>

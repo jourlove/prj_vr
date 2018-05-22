@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-gy navbar-fixed-top trans-3 navbar-curt">
+
+    <div class="navbar-header">
+	<a class="navbar-brand" href="/"><img src="/static/images/logo.png"  alt="{$_lang.title}" /></a>
+      <!-- 移动设备上的导航切换按钮 -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gy-navbar" aria-expanded=" ">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+      </button>
+     
+    </div>
+	<div id="gy-navbar" class="collapse navbar-collapse " aria-expanded="" style="height: 1px;">
+      <ul class="nav navbar-nav navbar-nav-menu">
+	    <li {if $module=='index'}class="active"{/if}><a href="/">发现</a></li>
+        <li {if $module=='pictures'}class="active"{/if}><a href="/pictures">全景摄影</a></li>
+        <li {if $module=='videos'}class="active"{/if}><a href="/videos">全景视频</a></li>      
+		<li {if $module=='people'}class="active"{/if}><a href="/people">作者</a></li>
+      </ul>
+	  
+	  
+	  <ul class="nav navbar-nav navbar-nav-funcs navbar-right hidden-xs">
+			   <li role="search">
+					<div class="header-search">
+						<form action="/search?word="+word">
+							<input name="word" value="" type="text" class="header-search__input" placeholder="搜索作品/摄影师/话题">
+							<i class="header-search__icon iconfont"></i>
+						</form>
+					</div>
+				</li>
+<script>
+  $("#search_btn").click(function(){
+      var word = $.trim($("#search_input").val());
+      if (word=="") {
+        return false;
+      }
+      window.location.href="/search?word="+word;
+  })
+</script>	
+	  
+
+      <ul class="nav navbar-nav navbar-right mobile_nav_hide">
+				<li role="publish">
+					<div class="btn btn-blue btn-sm" style="border-radius: 4px">
+						<a data-toggle="modal" type="button" onclick="javascript:window.location.href='/add/pic'">发布</a>
+					</div>
+				</li>
+       {if $user.pk_user_main lt 1}
+			 <li><a href="/passport/">登录</a></li>
+			 {if !$_lang.close_reg}<li><a href="/passport/register">注册</a></li>{/if}
+			 {else}
+             <li class="dropdown nav-dropdown dropdown-menu-curt"role="user">
+               <a href="#"> <span class="user-avatar" style="background-image: url({$user.avatar})"></span>
+			   <span class="user-name">{$user.nickname}<i class="iconfont"></i></span></a>
+               <ul class="dropdown-menu" role="menu">
+                 <li><a href="/member/profile">账户管理</a></li>
+		 <li><a href="/people/{$user.pk_user_main}">个人主页</a></li>
+                 <li class="divider"></li>
+                 <li><a href="/member/project">图片管理</a></li>
+                 <li><a href="/member/project?act=videos">视频管理</a></li>
+                 <li><a href="/member/object_around">物体环视</a></li>
+                 <li><a href="/member/mediares">素材管理</a></li>
+                 <li><a href="/member/download">离线下载</a></li>
+				         <li><a href="/member/logout">退　　出</a></li>
+               </ul>
+             </li>
+			 {/if}
+      </ul>
+
+    </div>
+
+</nav>
+</header>

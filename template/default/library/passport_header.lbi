@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-ch">
+<head>
+
+<script language="JavaScript" type="text/javascript" src="/static/js/jquery-1.9.1.js"></script>
+
+<style>
+	.passport_container{
+		margin:10% auto 0 auto;
+		min-height: 600px;
+		width: 300px;
+		text-align: center;
+	}
+</style>
+<script>
+{literal}
+	function showerr(content,obj){
+		alert_notice(content,'default','top');
+		if(obj!=null){
+			$(obj).parent(".input-group").addClass("has-error");
+		}
+	}
+
+{/literal}
+</script>
+</head>
+
+<body>
+

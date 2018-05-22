@@ -1,0 +1,40 @@
+<style>
+	.loadingMask{
+		position: absolute;
+		top: 0px;      
+        z-index: 2002; 
+        left: 0px;   
+        text-align: center;  
+	}
+	.loadingMask #loadingImg{
+		width: 400px;
+	}
+</style>
+<div id="loadingMask" class="loadingMask">
+	<img id="loadingImg">
+</div>
+
+<script>
+$(function(){
+	plugins_init_function.push(open_load_img);
+})
+function open_load_img(data,settings){
+  	//启动画面
+    var loadingObj = data.loading_img;
+    if (loadingObj && loadingObj.isopen=='1') {
+    	showloadingimg(loadingObj.imgPath,loadingObj.bgcolor);
+       settings["events[skin_events].onloadcomplete"] += "js(closeloading());";
+    }
+}
+function showloadingimg(imgPath,bgcolor){
+   $("#loadingMask").css("height",$(document).height());     
+   $("#loadingMask").css("width",$(document).width()); 
+   $("#loadingMask").css("background-color",bgcolor);   
+   $("#loadingMask #loadingImg").attr('src',imgPath); 
+   $("#loadingMask").css("line-height",$(document).height()+'px');
+   $("#loadingMask").show();  
+}
+function closeloading(){
+	$("#loadingMask").fadeOut(500);  
+}
+</script>

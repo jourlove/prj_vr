@@ -1,0 +1,122 @@
+	<!-- content -->
+<div class="user-login-content">
+	 <div class="jumbotron top-banner" style="background-image: url(/template/{$_lang.moban}/images/mobile-bg.jpg);">
+	<div class="mask-layer">
+		<div class="container">
+		<!-- 注册 -->
+			<div class="user-register-wrap">
+            <!--LOGO-->
+				<img class="user-login-logo" src="/static/images/logo.png" alt="{$_lang.title}">
+          <!--注册表单-->
+					<form id="reg_form" action="/passport/register" method="post" class="user-register-form">
+						<div class="form-group">
+					<input id="nickname" name="nickname" type="text" class="form-control"  placeholder="请输入昵称">
+						<input type="hidden" value="{$redirectUrl}" name="redirectUrl">
+						</div>
+						<div class="form-group row">
+							<div class="col-xs-7">
+								<input type="text" id="pic_captcha" placeholder="请输入图片验证码" class="form-control">
+							</div>
+						<div class="col-xs-5 col-captcha"style="text-align: left;">
+								<img id="captcha_img" src="/captcha.php?act=reg" class="lazy form-imgcode-btn lazy-loaded" data-original="/captcha.php?act=reg"  alt="点击图片，图片验证码"  data-was-processed="true">
+							</div>
+						</div>
+						<div class="form-group row">
+							
+							<div class="col-xs-7">
+							
+								<input type="textid="phone" name="phone" placeholder="请输入手机号" class="form-control">
+							</div>
+							
+							
+							<div class="col-xs-5">
+								<button id="send_btn" type="button" class="btn btn-blue btn-block">
+									获取验证码
+								</button>
+							</div>
+						</div>
+						<div class="form-group">
+						      <input type="text" class="form-control" id="sms_captcha" name="sms_captcha" placeholder="请输入手机验证码">
+							
+						</div>
+						<div class="form-group">
+								<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码 (6~30位)">
+						</div>
+						<div class="form-group">
+								<input type="password" class="form-control" id="confirm_password" placeholder="请确认密码 (6~30位)">
+							</div>
+					
+						<div class="checkbox">
+							<label>
+							<input checked="checked" name="accept" type="checkbox">我已阅读并同意
+							<a id="register-agree" href="javascript:;">《平台注册协议》</a>
+							</label>
+						</div>
+							<button type="submit" id="reg_btn" class="btn btn-sm btn-blue pull-right">
+								注 册
+							</button>
+						
+
+
+					</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script src="/static/js/sendsms.js"></script>
+<script>
+	$("#reg_btn").click(function(){
+		$(".input-group").removeClass('has-error');
+		$param = {};
+		$param.nickname = $.trim($("#nickname").val());
+		if ($param.nickname==""||$param.nickname.length>20) {
+			showerr("用户名长度在1到20位之间",$("#nickname"));
+			return false;
+		}
+		$param.phone = $.trim($("#phone").val());
+		if ($param.phone.length!=11) {
+			showerr("请输入正确的手机号",$("#phone"));
+			return false;
+		}
+		$param.sms_captcha = $.trim($("#sms_captcha").val());
+		if ($param.sms_captcha.length=="") {
+			showerr("请输入正确的短信验证码",$("#sms_captcha"));
+			return false;
+		}
+
+		$param.password = $.trim($("#password").val());
+		if ($param.password.length<6||$param.password.length>20) {
+			showerr("请输入6到20位的密码",$("#password"));
+			return false;
+		}
+		var confirm_password = $.trim($("#confirm_password").val());
+		if (confirm_password!=$param.password) {
+			showerr("两次输入的密码不一致",$("#confirm_password"));
+			return false;
+		}
+		var sms_captcha = $.trim($("#sms_captcha").val());
+		if (sms_captcha.length=="") {
+			showerr("请输入正确的验证码",$("#sms_captcha"));
+			return true;
+		};
+		ajaxFormSubmit("reg_form","reg_btn");
+	});
+	$("#captcha_img").click(function(){
+		$(this).attr('src','/captcha.php?act=reg&v'+(new Date().getTime()));
+	});
+	$("#send_btn").click(function(){
+		$(".input-group").removeClass('has-error');
+		var pic_captcha = $.trim($("#pic_captcha").val());
+		if (pic_captcha=="") {
+			showerr("请输入正确图形验证码",$("#pic_captcha"));
+			return false;
+		}
+		var phone = $.trim($("#phone").val());
+		if (phone.length!=11) {
+			showerr("请输入正确的手机号",$("#phone"));
+			return false;
+		}
+		sendSms("reg",phone,pic_captcha);
+	})
+</script>

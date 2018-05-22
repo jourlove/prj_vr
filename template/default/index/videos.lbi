@@ -1,0 +1,170 @@
+
+
+<!-- content -->
+<!-- 720°全景 -->
+<div class="pano-content body-content">
+  <!-- Banner -->
+        <div class="top-banner">
+                <img class="bc-img" src="/template/{$_lang.moban}/images/5a05685acad9b.jpg" alt="{$v.name}">
+            </div>
+
+
+
+
+<!-- 二级菜单 -->
+        <div class="submenu-wrap">
+		<div class="container">
+            <!-- 左侧菜单 -->
+		<div class="pull-left">
+		 <div class="btn-group submenu-btn-group"> 
+		 <!-- 当前选中的标签 -->
+		  <a class="dropdown-toggle" data-toggle="dropdown">
+                        频道 <i class="iconfont"></i>
+                    </a>
+		   <!-- 标签列表 -->
+		  <div class="row dropdown-menu submenu-dropdown-menu">
+		   <div class="col-xs-4">
+		   <a onclick="list_by_recommend(1,this)" class="btn-blue btn btn-sm btn-block btn-default">全部</a>
+		   </div>  		  
+		   {foreach $picture_tags as $v}
+		   	 <div class="col-xs-4">
+			<a  onclick="list_by_tag({$v.id},this)" {if $tag==$v.id}{/if} class=" btn btn-sm  btn-block btn-default">{$v.name}</a>
+			</div>
+			{/foreach}
+		   </div>
+		   </div>
+
+		   <!-- 精选 -->
+		    <div class="btn-group submenu-btn-group">
+			 <!-- 如果是选中状态，加上类 active -->
+			<a onclick="list_by_tag(-1,this)" {if $tag===-1}class="" href="javascript:;" title="查看精选作品"{/if}>精选</a>
+			</div>
+		   </div>
+            <!-- 右侧菜单 -->
+            <div class="pull-right">
+                <div class="btn-group submenu-btn-group">
+                    <!-- 当前选中的标签 -->
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        排序 <i class="iconfont"></i>
+                    </a>
+                    <!-- 标签列表 -->
+                    <ul class="dropdown-menu ">
+                        <li>
+                            <a href="{$v.browsing_num}">
+                                人气
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{$v.praised_num}">
+                                点赞数
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{$v.create_time}">
+                                最新
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+
+
+<!--一个卡片列表行-->
+<div class="container">
+
+		<!--卡片列表循环-->
+<ul  id="video_content" class="row pano-list clearfix">
+	
+</ul>		         
+		<!--卡片列表循环结束-->	
+
+</div>
+<!--一个卡片列表行结束-->
+</div>
+
+
+
+<script>
+	var play_host = '{$_lang.cdn_host}video/play.html?vid=';
+ 	var page = 1;
+ 	var recommend = 1 ;
+	$(function(){
+		list();
+		$(window).scroll(function(){
+		　　var scrollTop = $(this).scrollTop();
+		　　var scrollHeight = $(document).height();
+		　　var windowHeight = $(this).height();
+		　　if(scrollTop + windowHeight == scrollHeight){
+		　　　　list();
+		　　}
+		});
+	})
+	function list(){
+		alert_notice("加载中...",'success','bottom',500);
+		$.post('/videos',{
+			'act':'list',
+			'recommend':recommend,
+			'page':page
+		},function(res){
+			if (res.length==0) {
+				alert_notice("没有更多了",'default','bottom');
+			}else{
+				var html = '';
+				for(var i=0 ; i<res.length;i++){
+					var p = res[i];
+					html+='<li class="col-md-3 col-sm-6 col-xs-12">'+
+				  <!-- 作品链接 --> 
+        '<a class="pano-item" target="_blank" href="'+play_host+p.id+'" title="'+p.vname+'">'+
+					<!-- 作品图片 -->
+					   '<div class="pano-item-img"><img class="lazy" data-was-processed="true" src="'+p.thumb_path+'" alt="'+p.vname+'">'+
+					    ' </div>'+
+						<!-- 作品信息 -->
+						'<div class="pano-item-info">'+
+						 <!-- 摄影师信息 -->
+                         '<object>'+
+						 '<a class=" pano-item-author-avatar" target="_blank" href="/people/{$user.pk_user_main}" title="'+p.nickname+'">'+
+						'	<img class="lazy lazy-avatar lazy-loaded" src="'+p.avatar+'" data-original="'+p.avatar+'" data-was-processed="true" title="'+p.nickname+'">'+
+						 ' </a>'+
+						'	</object>'+
+						<!-- 作品标题 -->
+					    '   <h3 class="pano-item-title ellipsis">'+p.vname+'</h3>'+
+						
+						<!-- 被收藏数 -->
+						'	<object class="hidden-xs">'+
+						'		<a class="pano-item-collect"href="javascript:;"title="'+p.browsing_num+'"><i class="iconfont icon-nocollect">  </i>'+p.browsing_num+'</a>'+
+						'	</object>'+
+						
+						
+						' </div>'+
+												<!-- 浏览数和点赞 -->
+					'<div class="pano-item-label">'+
+						'<div class="pano-item-views pull-left">'+
+							'<i class="iconfont"> '+p.browsing_num+'</i>'+
+						'</div>'+
+						'<div class="pano-item-thumbs-up pull-right">'+
+							'<i class="iconfont"> '+p.praised_num+'</i>'+
+						'</div>'+
+					'</div>'+
+						' </div>'+
+					 ' </a>'+
+					 ' </li>';
+				}
+				page++;
+				$("#video_content").append(html);
+			}
+			
+		},'json');
+	}
+	function list_by_recommend(_recommend,obj){
+		page=1;
+		recommend = _recommend
+		$("#video_content").html("");
+		list();
+		$(obj).siblings().removeClass("btn-primary");
+		$(obj).addClass("btn-primary");
+	}
+</script>

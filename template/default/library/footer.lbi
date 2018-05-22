@@ -1,0 +1,52 @@
+		<!--back-top-->
+<a href="javascript:;" id="back-top" class="back-top iconfont" title="回到顶部" style="display: inline;"></a>
+
+<footer class="footer-wrap">
+	<a href="/"> {$_lang.title}</a>
+	<a>2015 - 2018 © All Rights Reserved.</a>
+	<a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">{$_lang.icp}</a>
+	<a href="tel:010-0000000">联系电话：{$_lang.tel}</a>
+	<a href="http://wpa.qq.com/msgrd?V=3&uin={$_lang.qq}&Site={$_lang.title}&Menu=yes" target="_blank">QQ：{$_lang.qq}</a>
+	<br><br>
+	<a class="hidden-xs"  href="https://v.pinpaibao.com.cn/authenticate/cert/?site=域名&amp;at=business" target="_blank">
+
+	<b id="aqLogoGZXRR" style="display: none;"></b>
+	<img src="/template/{$_lang.moban}/images/hy_124x47.png" alt="安全联盟认证" width="124" height="47" style="border: none;">
+	</a>
+</footer>
+
+<!-- / footer -->
+
+
+
+<script language="JavaScript" type="text/javascript" src="/static/js/jquery.form.js"></script>
+<script language="JavaScript" type="text/javascript" src="/static/js/bootbox.js"></script> 
+<script language="JavaScript" type="text/javascript" src="/static/js/pager.js"></script> 
+<script language="JavaScript" type="text/javascript" src="/static/js/common.js"></script>
+<script language="JavaScript" type="text/javascript" src="/static/js/zui.js"></script>
+
+<script src="/template/{$_lang.moban}/js/bootstrap.js"></script>
+<script src="/template/{$_lang.moban}/js/common.js"></script>
+<script src="/template/{$_lang.moban}/js/desktop.js"></script>
+<script src="/template/{$_lang.moban}/js/layer.js"></script>
+<script src="/template/{$_lang.moban}/js/lazyload.js"></script>
+
+
+<!-- JavaScript 堆栈 -->
+
+<script>
+    $('#is-best').on('click', function () {
+        var url = './pano?';
+
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).addClass('active');
+            url = url + '&best=1'
+        }
+
+        window.location.assign(url);
+    });
+</script>
+</body>
+</html>

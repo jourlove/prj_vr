@@ -1,0 +1,40 @@
+<div class="btn_showcard"  title="企业名片" style="display:none"></div>
+ 
+ 
+ 
+<script type="text/javascript">
+
+$(function(){    
+   plugins_init_function.push(vcard_init);
+   $('.btn_showcard').click(function(){   
+        $('#vcardModal').modal('show');       
+        toggleBtns(false);
+   })
+}) 
+function vcard_init(data){ 
+    if(data.vcard&& data.vcard.flag_vcard==1){  
+         $('.btn_showcard').show();
+         $('#vcardModal').find('.company').text(data.vcard.company);
+         $('#vcardModal').find('.phone>a').text(data.vcard.phone).attr('href','tel://'+data.vcard.phone);
+		 $('#vcardModal').find('.email').text(data.vcard.email);
+         $('#vcardModal').find('.address').text(data.vcard.addr);
+         $('#vcardModal').find('.wechat').text('企业微信公众号：'+data.vcard.wx);
+         $('#vcardModal').find('.qq').text(data.vcard.qq);
+         $('#vcardModal').find('.cardLogo img').attr('src',data.vcard.logo);
+         $('#vcardModal').find('.wxLogo img').attr('src',data.vcard.wx_logo);
+    }
+}  
+function hideVcard(){
+    $('#vcardModal').modal('hide');
+    toggleBtns(true);
+}
+function showCard(){   
+_hmt.push(['_trackEvent', '用户', '企业名片', '事件']);
+    var krpano = document.getElementById('krpanoSWFObject');
+    krpano.call("showCard('/member/vcard?act=view&view_uuid="+_view_uuid+"');");
+
+}
+</script>
+
+ 
+ 
