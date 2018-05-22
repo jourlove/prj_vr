@@ -1474,7 +1474,7 @@
     全景界面 手机菜单栏边框
  */
     .img_desc_container_min {
-        width: 45px;
+        width: 42px;
         margin-left: 0px;
         margin-right: 0px;
         /*position:relative;*/
@@ -1495,7 +1495,7 @@
     全景界面 手机版 菜单文字
     */
     .img_desc_min {
-        font-size:14px;
+        font-size:13px;
     }
     /*
     height: 12px;
