@@ -29,7 +29,7 @@
 		<!--卡片列表循环-->
 		<!-- <div class="col-md-3 col-sm-6 col-xs-12">
 		 <div class="card channel-box">
-		  <h2>频道</h2>
+		  <h2>分类</h2>
 		  <ul class="channel">
 		   <li><a href="/pictures?tag=0" {if $tag===0}class="active"{/if}>全部</a></li>
 		   <li><a href="/pictures?tag=-1" {if $tag===-1}class="active"{/if}>编辑推荐</a></li>

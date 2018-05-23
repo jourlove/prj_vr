@@ -19,7 +19,7 @@
 		 <div class="btn-group submenu-btn-group"> 
 		 <!-- 当前选中的标签 -->
 		  <a class="dropdown-toggle" data-toggle="dropdown">
-                        频道 <i class="iconfont"></i>
+                        分类 <i class="iconfont"></i>
                     </a>
 		   <!-- 标签列表 -->
 		  <div class="row dropdown-menu submenu-dropdown-menu">

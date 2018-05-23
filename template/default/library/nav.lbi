@@ -40,37 +40,35 @@
       window.location.href="/search?word="+word;
   })
 </script>	
-				
-				
-				<li role="publish">
-				 <div class="btn btn-blue btn-sm">
-                 <a data-toggle="modal" type="button" onclick="javascript:window.location.href='/add/pic'">发布</a>
 
-				</div>
-				</li>
-				{if $user.pk_user_main lt 1}
-				<li><a href="/passport/">登录</a></li>
-				 {if !$_lang.close_reg}<li><a href="/passport/register">注册</a></li>{/if}
-			 {else}
+{if $user.pk_user_main lt 1}
+	{if !$_lang.close_reg}
+	    <li role="publish">
+             <div class="btn btn-blue btn-sm">
+                <a data-toggle="modal" type="button" onclick="javascript:window.location.href='/add/pic'">发布</a>
+            </div>
+        </li>
+	    <li><a href="/passport/">登录</a></li>
+	    <li><a href="/passport/register">注册</a></li>
+	{/if}
+{else}
+     <li class="dropdown nav-dropdown dropdown-menu-curt" role="user">
+     <a href="#"> <span class="user-avatar" style="background-image: url({$user.avatar})"></span>
+     <span class="user-name">{$user.nickname}<i class="iconfont"></i></span></a>
 
-			     <li class="dropdown nav-dropdown dropdown-menu-curt" role="user">
-			 
-               <a href="#"> <span class="user-avatar" style="background-image: url({$user.avatar})"></span>
-			   <span class="user-name">{$user.nickname}<i class="iconfont"></i></span></a>
-			   
-			  <ul class="dropdown-menu" role="menu">
-                 <li><a href="/member/profile">账户管理</a></li>
-		 <li><a href="/people/{$user.pk_user_main}">个人主页</a></li>
-                 <li class="divider"></li>
-                 <li><a href="/member/project">图片管理</a></li>
-                 <li><a href="/member/project?act=videos">视频管理</a></li>
-                 <li><a href="/member/object_around">物体环视</a></li>
-                 <li><a href="/member/mediares">素材管理</a></li>
-                 <li><a href="/member/download">离线下载</a></li>
-				         <li><a href="/member/logout">退　　出</a></li>
-               </ul>
-             </li>
-			 {/if}
+     <ul class="dropdown-menu" role="menu">
+         <li><a href="/member/profile">账户管理</a></li>
+         <li><a href="/people/{$user.pk_user_main}">个人主页</a></li>
+         <li class="divider"></li>
+         <li><a href="/member/project">图片管理</a></li>
+         <li><a href="/member/project?act=videos">视频管理</a></li>
+         <li><a href="/member/object_around">物体环视</a></li>
+         <li><a href="/member/mediares">素材管理</a></li>
+         <li><a href="/member/download">离线下载</a></li>
+         <li><a href="/member/logout">退　　出</a></li>
+      </ul>
+ </li>
+{/if}
 			 
       
       </ul>
