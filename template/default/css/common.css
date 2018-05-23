@@ -104,7 +104,7 @@ a:hover .bbs-topic-title{
 
 
 /*** footer(底部) ***/
-.footer-wrap {padding: 30px 10px; line-height: 22px; font-size: 12px; background: #e0dfdf; color: #9c9c9c;text-align: center;}
+.footer-wrap {padding: 10px 10px; line-height: 22px; font-size: 12px; background: #2d2c34; color: #9c9c9c;text-align: center;}
 .footer-wrap a{color: #9c9c9c;margin-right: 10px;display: inline-block;}
 .footer-wrap a:hover{text-decoration: underline; }
 .footer-wrap .friend-link{padding: 12px 0;}

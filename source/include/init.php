@@ -71,6 +71,7 @@ if($_lang['tempclose']){
 	echo "<div style=\"text-align:center;\">".$_lang['closereason']."</div>";
 	exit;
 }
+//是否手机访问
 $_SESSION['is_mobile'] = Common::is_mobile_visit();
 $tp->assign('_lang',$_lang);
 

@@ -1,27 +1,37 @@
-		<!--back-top-->
-<a href="javascript:;" id="back-top" class="back-top iconfont" title="回到顶部" style="display: inline;"></a>
 
 <footer class="footer-wrap">
-	<a href="/"> {$_lang.title}</a>
-	<a>2015 - 2018 © All Rights Reserved.</a>
+	Copyright @ 2015-2018 &nbsp;
+	{$_lang.title} All Rights Reserved.&nbsp;
 	<a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">{$_lang.icp}</a>
-	<a href="tel:010-0000000">联系电话：{$_lang.tel}</a>
+</footer>
+
+<!-- 右侧客服 -->
+<a href="#" class="scroll-phone rigBtn" target="_blank">
+    <span class="phoneBox" style="color: rgb(51, 51, 51); display: none;">
+        咨询热线：
+        <span style="color:#069dd6;">{$_lang.tel}</span>
+        <span class="arrow" style="bottom:110px;"></span>
+    </span>
+</a>
+<a href="#" class="scroll-up rigBtn" title="回到顶部">&nbsp;</a>
+<!-- 右侧客服 --end-->
+
+<!-- / footer
+    <a href="javascript:void(0);" id="back-top" class="back-top iconfont" title="回到顶部" style="display: inline;"></a>
+    <a href="tel:010-0000000">联系电话：{$_lang.tel}</a>
 	<a href="http://wpa.qq.com/msgrd?V=3&uin={$_lang.qq}&Site={$_lang.title}&Menu=yes" target="_blank">QQ：{$_lang.qq}</a>
 	<br><br>
 	<a class="hidden-xs"  href="https://v.pinpaibao.com.cn/authenticate/cert/?site=域名&amp;at=business" target="_blank">
-
 	<b id="aqLogoGZXRR" style="display: none;"></b>
 	<img src="/template/{$_lang.moban}/images/hy_124x47.png" alt="安全联盟认证" width="124" height="47" style="border: none;">
 	</a>
-</footer>
-
-<!-- / footer -->
+-->
 
 
 
 <script language="JavaScript" type="text/javascript" src="/static/js/jquery.form.js"></script>
-<script language="JavaScript" type="text/javascript" src="/static/js/bootbox.js"></script> 
-<script language="JavaScript" type="text/javascript" src="/static/js/pager.js"></script> 
+<script language="JavaScript" type="text/javascript" src="/static/js/bootbox.js"></script>
+<script language="JavaScript" type="text/javascript" src="/static/js/pager.js"></script>
 <script language="JavaScript" type="text/javascript" src="/static/js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="/static/js/zui.js"></script>
 
@@ -48,5 +58,34 @@
         window.location.assign(url);
     });
 </script>
+
+<!-- 右侧客服 响应-->
+<script type="text/javascript">
+        $(window).scroll(function (e) {
+            if ($(this).scrollTop() > 100) {
+                $('.scroll-up').fadeIn();
+            } else {
+                $('.scroll-up').fadeOut();
+            }
+        });
+
+        $(function(){
+            var w_h=$(window).height();
+            var d_h=$("body").height();
+             $(".scroll-wx,.scroll-phone").mouseover(function(){
+                $(this).find(".phoneBox").show();
+            }).mouseout(function(){
+                $(this).find(".phoneBox").hide();
+            })
+
+            $('.scroll-up').click(function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        })
+</script>
+<!-- 右侧客服 --end-->
 </body>
 </html>

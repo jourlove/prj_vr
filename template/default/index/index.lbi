@@ -4,8 +4,8 @@
 	<!-- 轮播图 -->
 		<div class="index-slider top-banner">
 		<div class="swiper-container swiper-container-horizontal swiper-container-fade">
-			<ul class="swiper-wrapper" style="transition-duration: 0ms;">      	
-				    {foreach $slide as $k=>$v}					
+			<ul class="swiper-wrapper" style="transition-duration: 0ms;">
+				    {foreach $slide as $k=>$v}
 			<li class="swiper-slide" data-swiper-slide-index="1" style="width: 1543px; transform: translate3d(-3086px, 0px, 0px); opacity: 1; transition-duration: 0ms;">
 					<!-- 作品链接 -->
 					<a class="index-slider-item" target="_blank" href="{$v.link}">
@@ -28,9 +28,9 @@
 			<h1 class="big-title">
 			首页-推荐全景
 			</h1>
-		
+
 	<!-- 作品列表 -->
-	
+
 <div class="container">
 
 	<!--一个卡片列表行-->
@@ -51,7 +51,7 @@
 					<a class="pano-item-author-avatar"      href="/people/{$user.pk_user_main}"     target="_blank"  title="{$recommend[$i]['nickname']}">
 				   <img class="lazy" src="{$recommend[$i]['avatar']}" data-original="{$recommend[$i]['avatar']}" data-was-processed="true">
 															</a>
-												
+
 						</object>
 						<!-- 作品标题 -->
 						<h3 class="pano-item-title ellipsis">
@@ -78,10 +78,10 @@
 					</div>
 				</a>
 			</li>
-			 
-			{/for}	         
-			<!--卡片列表循环结束-->	
-		
+
+			{/for}
+			<!--卡片列表循环结束-->
+
 	</ul>
 	<!--一个卡片列表行结束-->
 </div>
@@ -153,10 +153,10 @@
 					</div>
 				</a>
 			</li>
-			 
-			{/for}	         
-			<!--卡片列表循环结束-->	
-		
+
+			{/for}
+			<!--卡片列表循环结束-->
+
 	</ul>
 	<!--一个卡片列表行结束-->
 	</div>
@@ -170,7 +170,7 @@
 				<div class="big-title-line" style="background-image: url(./template/{$_lang.moban}/images/title-line.png);"></div>
 			</div>
 			<div class="row partner-list">
-			
+
 		       {foreach $ad as $k=>$v}
 				<div class="partner-item col-sm-3 col-md-2" position=2>
 				<!-- 作品链接 -->
@@ -180,29 +180,37 @@
 				</a>
 				</div>
 				{/foreach}
-				
+
 			</div>
 		</div>
 	</div>
 
-	<!-- 全景全景信息 -->
-	<div class="gyinfo-wrap ">
-		<div class="container">
-			<div class="row">
-				<div class="hidden-sm hidden-xs col-md-3">
-					<a href="#" class="gyinfo-logo">
-						<img src="./static/images/logo.png">
-					</a>
-				</div>
-						
-				
+	<!-- 首页底部联系区域 -->
+	<div class="homefooter">
+		<div class="footerMain">
+		    <div class="footMenu">
+                <div class="footMenu_a">
+                    <span>平台服务：</span>
+                    <a>专业定制全景</a>
+                    <a>专业摄影</a>
+                </div>
+                <div class="footMenu_a">
+                    <span>咨询热线：</a>
+                    <a>{$_lang.tel}<a>
+                </div>
+            </div>
+            <div class="imgWrap">
+                <img class="lazy lazy-loaded" src="./template/{$_lang.moban}/images/weibo.jpg" data-original="./template/{$_lang.moban}/images/weibo.jpg" data-was-processed="true">
+             </div>
 
- 
-				
+		</div>
+	</div>
+	<!-- 网络地图弹窗 -->
+</div>
+
+<!--
 				<div class="col-sm-6 col-md-5 hidden-xs">
-			
 					<div class="row">
-						
 						<div class="text-left col-sm-4 col-md-4">
 							<dt>
 								关于全景
@@ -215,8 +223,6 @@
 							</dd>
                             {/foreach}
 						</div>
-						
-						
 						<div class="text-left col-sm-4 col-md-4">
 							<dt>
 								联系我们
@@ -228,10 +234,7 @@
 								</a>
 							</dd>
                             {/foreach}
-
 						</div>
-						
-						
 						<div class="text-left col-sm-4 col-md-4">
 							<dt>
 								会员服务
@@ -244,38 +247,11 @@
 							</dd>
                             {/foreach}
 						</div>
-							
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="row">
-						<div class="col-xs-6">
-							<a class="gyinfo-qrcode" href="#" title="全景平台官方微博">
-								<img class="lazy lazy-loaded" src="./template/{$_lang.moban}/images/weibo.jpg" data-original="./template/{$_lang.moban}/images/weibo.jpg" data-was-processed="true">
-								<h5>全景平台微博</h5>
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a class="gyinfo-qrcode" title="扫一扫关注全景公众号">
-								<img class="lazy lazy-loaded" src="./template/{$_lang.moban}/images/wechat-qrcode.png" data-original="./template/{$_lang.moban}/images/wechat-qrcode.png" data-was-processed="true">
-								<h5>全景公众号</h5>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- 网络地图弹窗 -->
+				-->
 
 
-</div>
-	
-	
-	
-	
-	
 <!-- 轮播图 -->
 <script type="text/javascript">
 $(function() {

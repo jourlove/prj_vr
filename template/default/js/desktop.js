@@ -32,26 +32,16 @@ $(function() {
 	});
 
 	/* 回到顶部 */
-	$("#back-top").click(function() {
-		if($('html').scrollTop()) {
-			$('html').animate({ scrollTop: 0 }, 400);
-			return false;
-		}
-		$('body').animate({ scrollTop: 0 }, 400);
-		return false;
-	});
-
-	/* 收藏，取消收藏 */
-	// $(".pano-item-collect").click(function(){
-	// 	var obj = $(this);
-	// 	if (obj.hasClass("collected")) {
-	// 		layer.msg('已取消收藏');
-	// 		obj.toggleClass("collected");
-	// 	} else {
-	// 		layer.msg('已收藏');
-	// 		obj.toggleClass("collected");
-	// 	};
+	// $("#back-top").click(function() {
+	// 	if($('html').scrollTop()) {
+	// 		$('html').animate({ scrollTop: 0 }, 400);
+	// 		return false;
+	// 	}
+	// 	$('body').animate({ scrollTop: 0 }, 400);
+	// 	return false;
 	// });
+
+
 });
 
 // 图片懒加载配置
