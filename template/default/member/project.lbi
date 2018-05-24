@@ -490,10 +490,10 @@ function list_videos(currentPage,reset){
 			    		'<img src="'+(o.thumb_path?o.thumb_path:"/static/images/play.png")+'" width="60" height="60" class="img-rounded" >'+
 			    	'</div>'+
 			    	'<div class="pull-left works_intro" >'+
-			    		'<a href="'+cdn_host+'video/play.html?vid='+o.id+'" class="works_name" target="_blank">'+o.vname+'</a>&nbsp;&nbsp;&nbsp;&nbsp;'+
+			    		'<a href="'+'video/play.html?vid='+o.id+'" class="works_name" target="_blank">'+o.vname+'</a>&nbsp;&nbsp;&nbsp;&nbsp;'+
 			    		(o.state==0?'<span class="text-warning">等待编辑</span>':
 			    			(o.flag_publish==0?'<span class="text-danger">未发布</span>':'<span class="text-success">已发布</span>'))+
-			    		'<a href="'+cdn_host+'video/play.html?vid='+o.id+'" class="works_preview" target="_blank">预览</a>'+
+			    		'<a href="'+'video/play.html?vid='+o.id+'" class="works_preview" target="_blank">预览</a>'+
 			    		'<div class="text-muted">'+
 			    			'<span>'+o.create_time+'</span>'+
 			    			'&nbsp;&nbsp;'+
@@ -729,7 +729,7 @@ function fenxiang(data_id,data_host){
 	var text;
 	var qrcode_src;
 	if(data_host){
-		text = data_host+"video/play.html?vid="+data_id;
+		text = "/video/play.html?vid="+data_id;
 		qrcode_src = "/qrcode.php?act=video&vid="+data_id;
 	}
 	else{

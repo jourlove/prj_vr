@@ -43,7 +43,7 @@ else if($act=='video'){
 		$pro['cdn_host'] = $GLOBALS['_lang']['host'];	
 	}
 	$QR = $temp.'video_'.$pro['pk_user_main'].'_'.$vid.'.png';
-	createQr($pro['cdn_host'].'video/play.html?vid='.$vid, $QR);
+	createQr('/video/play.html?vid='.$vid, $QR);
 	$QR = createWithLogo($QR);
 	header('Content-type: image/png');
 	ob_clean();

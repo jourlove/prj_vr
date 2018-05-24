@@ -213,7 +213,7 @@ background-color:#fafafa
  	var page = 1;
  	var type = 'pic'; //1 查询全景图 2查询全景视频
  	var uid = '{$author.pk_user_main}';
- 	var play_host = '{$_lang.cdn_host}video/play.html?vid=';
+ 	var play_host = '/video/play.html?vid=';
 	$(function(){
 		list(type);
 		$(window).scroll(function(){
