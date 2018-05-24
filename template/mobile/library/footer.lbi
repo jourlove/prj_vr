@@ -1,17 +1,11 @@
 
 <footer class="footer-wrap">
-	Copyright @ 2015-2018 &nbsp;
+	Copyright @ 2015-2018 &nbsp;<br>
 	{$_lang.title} All Rights Reserved.&nbsp;
-	<a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">{$_lang.icp}</a>
 </footer>
 
 <!-- 右侧客服 -->
-<a href="#" id="contact_us" class="scroll-phone rigBtn")>
-    <span class="phoneBox" style="color: rgb(51, 51, 51); display: none;">
-        咨询热线：
-        <span style="color:#069dd6;">{$_lang.tel}</span>
-        <span class="arrow" style="bottom:110px;"></span>
-    </span>
+<a href="#" class="scroll-phone rigBtn" onClick="confirmTell()">
 </a>
 <a href="#" class="scroll-up rigBtn" title="回到顶部">&nbsp;</a>
 <!-- 右侧客服 --end-->
@@ -72,7 +66,15 @@
                 return false;
             });
         })
+
+        function confirmTell() {
+            if (confirm("确认拨打电话？")) { //在页面上弹出确认对话框
+                //拨打电话
+                window.location.href = "{$_lang.tel}";
+            }
+        }
 </script>
-<!-- 右侧客服 --end-->
+
+<!-- 右侧客服 {$_lang.tel} --end-->
 </body>
 </html>

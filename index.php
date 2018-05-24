@@ -12,6 +12,6 @@ if(file_exists($module_file= 'template/'.$_lang['moban'].'/module/'.$module.'.ph
    $tp->display($_lang['moban'].'/index.tpl');
 }
 else{
-   die('hacking attempt');
+   die('not exist');
 }
 ?>

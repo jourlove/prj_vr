@@ -1,4 +1,5 @@
 
+
 <!-- content -->
 <!-- 720°全景 -->
 <div class="pano-content body-content">
@@ -6,9 +7,11 @@
         <div class="top-banner">
                 <img class="bc-img" src="/template/{$_lang.moban}/images/5a05685acad9b.jpg" alt="{$v.name}">
             </div>
-			
-			
-        <!-- 二级菜单 -->
+
+
+
+
+<!-- 二级菜单 -->
         <div class="submenu-wrap">
 		<div class="container">
             <!-- 左侧菜单 -->
@@ -21,7 +24,7 @@
 		   <!-- 标签列表 -->
 		  <div class="row dropdown-menu submenu-dropdown-menu">
 		   <div class="col-xs-4">
-		   <a onclick="list_by_tag(0,this)" class="btn-blue btn btn-sm btn-block btn-default">全部</a>
+		   <a onclick="list_by_recommend(1,this)" class="btn-blue btn btn-sm btn-block btn-default">全部</a>
 		   </div>  		  
 		   {foreach $picture_tags as $v}
 		   	 <div class="col-xs-4">
@@ -68,11 +71,13 @@
       </div>
 
 
+
+
 <!--一个卡片列表行-->
 <div class="container">
 
 		<!--卡片列表循环-->
-<ul  id="pictures_content" class="row pano-list clearfix">
+<ul  id="video_content" class="row pano-list clearfix">
 	
 </ul>		         
 		<!--卡片列表循环结束-->	
@@ -80,9 +85,13 @@
 </div>
 <!--一个卡片列表行结束-->
 </div>
+
+
+
 <script>
+	var play_host = '{$_lang.cdn_host}video/play.html?vid=';
  	var page = 1;
- 	var tag = 0 ;
+ 	var recommend = 1 ;
 	$(function(){
 		list();
 		$(window).scroll(function(){
@@ -96,9 +105,9 @@
 	})
 	function list(){
 		alert_notice("加载中...",'success','bottom',500);
-		$.post('/pictures',{
+		$.post('/videos',{
 			'act':'list',
-			'tag':tag,
+			'recommend':recommend,
 			'page':page
 		},function(res){
 			if (res.length==0) {
@@ -109,20 +118,20 @@
 					var p = res[i];
 					html+='<li class="col-md-3 col-sm-6 col-xs-12">'+
 				  <!-- 作品链接 --> 
-        '<a class="pano-item" target="_blank" href="/tour/'+p.view_uuid+'" title="'+p.name+'">'+
-					  <!-- 作品图片 -->
-					   ' <div class="pano-item-img"><img class="lazy" data-was-processed="true"src="'+p.thumb_path+'" data-original="'+p.thumb_path+'"  data-was-processed="true">'+
-						' </div>'+
+        '<a class="pano-item" target="_blank" href="'+play_host+p.id+'" title="'+p.vname+'">'+
+					<!-- 作品图片 -->
+					   '<div class="pano-item-img"><img class="lazy" data-was-processed="true" src="'+p.thumb_path+'" alt="'+p.vname+'">'+
+					    ' </div>'+
 						<!-- 作品信息 -->
 						'<div class="pano-item-info">'+
 						 <!-- 摄影师信息 -->
                          '<object>'+
-						 '<a class=" pano-item-author-avatar" target="_blank" href="#" title="'+p.nickname+'">'+
+						 '<a class=" pano-item-author-avatar" target="_blank" href="/people/{$user.pk_user_main}" title="'+p.nickname+'">'+
 						'	<img class="lazy lazy-avatar lazy-loaded" src="'+p.avatar+'" data-original="'+p.avatar+'" data-was-processed="true" title="'+p.nickname+'">'+
 						 ' </a>'+
 						'	</object>'+
 						<!-- 作品标题 -->
-					    '   <h3 class="pano-item-title ellipsis">'+p.name+'</h3>'+
+					    '   <h3 class="pano-item-title ellipsis">'+p.vname+'</h3>'+
 						
 						<!-- 被收藏数 -->
 						'	<object class="hidden-xs">'+
@@ -142,20 +151,20 @@
 					'</div>'+
 						' </div>'+
 					 ' </a>'+
-					' </li>';
+					 ' </li>';
 				}
 				page++;
-				$("#pictures_content").append(html);
+				$("#video_content").append(html);
 			}
 			
 		},'json');
 	}
-	function list_by_tag(_tag,obj){
+	function list_by_recommend(_recommend,obj){
 		page=1;
-		tag = _tag;
-		$("#pictures_content").html("");
+		recommend = _recommend
+		$("#video_content").html("");
 		list();
-		$(".channel .active").removeClass("active");
-		$(obj).addClass("active");
+		$(obj).siblings().removeClass("btn-primary");
+		$(obj).addClass("btn-primary");
 	}
 </script>

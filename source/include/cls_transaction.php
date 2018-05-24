@@ -94,10 +94,12 @@ class Transaction extends Common{
 			}
 		}
 		//给模板赋初始值
-		if(empty($GLOBALS['_lang']['moban'])){
-			$GLOBALS['_lang']['moban'] = 'default';
-		}
-		
+        if (Common::is_mobile_visit()) {
+            $GLOBALS['_lang']['moban'] = 'mobile';
+        }else {
+            $GLOBALS['_lang']['moban'] = 'default';
+        }
+
 		//$GLOBALS['_lang']['global_storage'] = 'local';
 		
 		$GLOBALS['_lang']['cdn_host'] = 'http://'.$GLOBALS['_lang'][$GLOBALS['_lang']['global_storage'].'_config']['cdn_host'].'/';
