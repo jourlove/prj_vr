@@ -10,20 +10,20 @@ $uid = intval($_REQUEST['uid']);
 $author = $Db->query('SELECT u.phone,u.nickname,u.level,p.*,u.pk_user_main FROM '.$Base->table('user').' u LEFT JOIN '.$Base->table('user_profile').'p ON u.pk_user_main = p.pk_user_main WHERE u.pk_user_main = '.$uid,'Row' );
 
 //作者主页
-if($author){	
+if($author){
 	$type = Common::sfilter($_REQUEST['type']);
 	$size = 24;
 	$page = intval($_REQUEST['page']);
 	//全景视频
 	if($type=='video'){
-		$sql = 'select id,vname,thumb_path,browsing_num from '.$GLOBALS['Base']->table('video').' '.
+		$sql = 'select id,vname,thumb_path,browsing_num,praised_num from '.$GLOBALS['Base']->table('video').' '.
 		       'WHERE pk_user_main = '.$uid.' ORDER BY id DESC LIMIT '.($page-1)*$size.' , '.$size;
 		echo $Json->encode($Db->query($sql));
 		exit;
 	}
 	//全景图片
 	else if($type=='pic'){
-		$sql = 'SELECT name , view_uuid , thumb_path , browsing_num FROM '.$Base->table('worksmain').' '.
+		$sql = 'SELECT name , view_uuid , thumb_path , browsing_num,praised_num FROM '.$Base->table('worksmain').' '.
 		       'WHERE pk_user_main = '.$uid.' ORDER BY pk_works_main DESC LIMIT '.($page-1)*$size.' , '.$size;
 		echo $Json->encode($Db->query($sql));
 		exit;

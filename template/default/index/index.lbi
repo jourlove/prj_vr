@@ -48,16 +48,15 @@
 					<div class="pano-item-info" id="authorDiv">
 						<!-- 摄影师信息 -->
 						<object>
-					<a class="pano-item-author-avatar"      href="/people/{$user.pk_user_main}"     target="_blank"  title="{$recommend[$i]['nickname']}">
-				   <img class="lazy" src="{$recommend[$i]['avatar']}" data-original="{$recommend[$i]['avatar']}" data-was-processed="true">
-															</a>
-
+                            <a class="pano-item-author-avatar"      href="/people/{$user.pk_user_main}"     target="_blank"  title="{$recommend[$i]['nickname']}">
+                            <img class="lazy" src="{$recommend[$i]['avatar']}" data-original="{$recommend[$i]['avatar']}" data-was-processed="true">
+							</a>
 						</object>
 						<!-- 作品标题 -->
 						<h3 class="pano-item-title ellipsis">
 							{$recommend[$i]['name']}
 						</h3>
-						<!-- 被收藏数 -->
+						<!-- 被收藏数
 						<object class="hidden-xs">
 							<a class="pano-item-collect" href="javascript:;" title="收藏数 0">
 								<i class="iconfont icon-nocollect"></i>
@@ -65,6 +64,7 @@
 								<span>{$recommend[$i]['browsing_num']}</span>{$v['browsing_num']}
 							</a>
 						</object>
+						-->
 					</div>
 					<!-- 浏览数和点赞 -->
 					<div class="pano-item-label">
@@ -147,52 +147,7 @@
 
 		</div>
 	</div>
-	<!-- 网络地图弹窗 -->
 </div>
-
-<!--
-				<div class="col-sm-6 col-md-5 hidden-xs">
-					<div class="row">
-						<div class="text-left col-sm-4 col-md-4">
-							<dt>
-								关于全景
-							</dt>
-							{foreach $nav_links.left_bottom as $v}
-							<dd>
-								<a href="/article?aid={$v.id}" title="{$v.title}">
-									{$v.title}
-								</a>
-							</dd>
-                            {/foreach}
-						</div>
-						<div class="text-left col-sm-4 col-md-4">
-							<dt>
-								联系我们
-							</dt>
-							{foreach $nav_links.left_bottom as $v}
-							<dd>
-								<a href="/article?aid={$v.id}" title="{$v.title}">
-									{$v.title}
-								</a>
-							</dd>
-                            {/foreach}
-						</div>
-						<div class="text-left col-sm-4 col-md-4">
-							<dt>
-								会员服务
-							</dt>
-							{foreach $nav_links.left_bottom as $v}
-							<dd>
-								<a href="/article?aid={$v.id}" title="{$v.title}">
-									{$v.title}
-								</a>
-							</dd>
-                            {/foreach}
-						</div>
-					</div>
-				</div>
-				-->
-
 
 <!-- 轮播图 -->
 <script type="text/javascript">

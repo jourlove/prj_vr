@@ -213,7 +213,10 @@ background-color:#fafafa
  	var page = 1;
  	var type = 'pic'; //1 查询全景图 2查询全景视频
  	var uid = '{$author.pk_user_main}';
+ 	var avatar = '{$author.avatar}';
+ 	var nickname = '{$author.nickname}';
  	var play_host = '{$_lang.cdn_host}video/play.html?vid=';
+
 	$(function(){
 		list(type);
 		$(window).scroll(function(){
@@ -257,21 +260,13 @@ background-color:#fafafa
 						'<div class="pano-item-info">'+
 						 <!-- 摄影师信息 -->
                          '<object>'+
-						 '<a class=" pano-item-author-avatar" target="_blank" href="#" title="'+p.nickname+'">'+
-						'	<img class="lazy lazy-avatar lazy-loaded" src="'+p.avatar+'" data-original="'+p.avatar+'" data-was-processed="true" title="'+p.nickname+'">'+
+						 '<a class=" pano-item-author-avatar" target="_blank" href="#" title="'+nickname+'">'+
+						'	<img class="lazy lazy-avatar lazy-loaded" src="'+avatar+'" data-original="'+avatar+'" data-was-processed="true" title="'+nickname+'">'+
 						 ' </a>'+
 						'	</object>'+
 						<!-- 作品标题 -->
 					    '   <h3 class="pano-item-title ellipsis">'+p.name+'</h3>'+
-						
-						<!-- 被收藏数 -->
-						'	<object class="hidden-xs">'+
-						'		<a class="pano-item-collect"href="javascript:;"title="'+p.browsing_num+'"><i class="iconfont icon-nocollect">  </i>'+p.browsing_num+'</a>'+
-						'	</object>'+
-						
-						
-						' </div>'+
-												<!-- 浏览数和点赞 -->
+						<!-- 浏览数和点赞 -->
 					'<div class="pano-item-label">'+
 						'<div class="pano-item-views pull-left">'+
 							'<i class="iconfont"> '+p.browsing_num+'</i>'+

@@ -24,7 +24,7 @@
 
 
 <!-- JavaScript 堆栈 -->
-
+<!-- 似乎没用，点赞在全景界面中进行 -->
 <script>
     $('#is-best').on('click', function () {
         var url = './pano?';

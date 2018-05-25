@@ -46,18 +46,19 @@
 											</div>
 					<!-- 作品信息 -->
 					<div class="pano-item-info" id="authorDiv">
-						<!-- 摄影师信息 -->
-						<object>
-					<a class="pano-item-author-avatar"      href="/people/{$user.pk_user_main}"     target="_blank"  title="{$recommend[$i]['nickname']}">
-				   <img class="lazy" src="{$recommend[$i]['avatar']}" data-original="{$recommend[$i]['avatar']}" data-was-processed="true">
-															</a>
+                        <!-- 摄影师信息======================
+                        <object>
+                            <a class="pano-item-author-avatar"      href="/people/{$user.pk_user_main}"     target="_blank"  title="{$recommend[$i]['nickname']}">
+                               <img class="lazy" src="{$recommend[$i]['avatar']}" data-original="{$recommend[$i]['avatar']}" data-was-processed="true">
+                            </a>
+                        </object>
+                        -->
 
-						</object>
-						<!-- 作品标题 -->
+					    <!-- 作品标题 -->
 						<h3 class="pano-item-title ellipsis">
 							{$recommend[$i]['name']}
 						</h3>
-						<!-- 被收藏数 -->
+						<!-- 被收藏数=====
 						<object class="hidden-xs">
 							<a class="pano-item-collect" href="javascript:;" title="收藏数 0">
 								<i class="iconfont icon-nocollect"></i>
@@ -65,8 +66,9 @@
 								<span>{$recommend[$i]['browsing_num']}</span>{$v['browsing_num']}
 							</a>
 						</object>
+						-->
 					</div>
-					<!-- 浏览数和点赞 -->
+					<!-- 浏览数和点赞=============
 					<div class="pano-item-label">
 						<div class="pano-item-views pull-left">
 							<i class="iconfont"></i>
@@ -76,6 +78,7 @@
 							<i class="iconfont"></i>{$recommend[$i]['praised_num']}
 						</div>
 					</div>
+					 -->
 				</a>
 			</li>
 

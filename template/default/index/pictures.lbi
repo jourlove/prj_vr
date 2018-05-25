@@ -115,7 +115,7 @@
 						' </div>'+
 						<!-- 作品信息 -->
 						'<div class="pano-item-info">'+
-						 <!-- 摄影师信息 -->
+						 <!-- 摄影师信息-->
                          '<object>'+
 						 '<a class=" pano-item-author-avatar" target="_blank" href="#" title="'+p.nickname+'">'+
 						'	<img class="lazy lazy-avatar lazy-loaded" src="'+p.avatar+'" data-original="'+p.avatar+'" data-was-processed="true" title="'+p.nickname+'">'+
@@ -123,15 +123,7 @@
 						'	</object>'+
 						<!-- 作品标题 -->
 					    '   <h3 class="pano-item-title ellipsis">'+p.name+'</h3>'+
-						
-						<!-- 被收藏数 -->
-						'	<object class="hidden-xs">'+
-						'		<a class="pano-item-collect"href="javascript:;"title="'+p.browsing_num+'"><i class="iconfont icon-nocollect">  </i>'+p.browsing_num+'</a>'+
-						'	</object>'+
-						
-						
-						' </div>'+
-												<!-- 浏览数和点赞 -->
+						<!-- 浏览数和点赞 -->
 					'<div class="pano-item-label">'+
 						'<div class="pano-item-views pull-left">'+
 							'<i class="iconfont"> '+p.browsing_num+'</i>'+

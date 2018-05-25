@@ -5,12 +5,6 @@ if(!defined('IN_T')){
 }
 
 
-$aid = intval($_REQUEST['aid']);
-$a = $Db->query("select * from ".$Base->table('article')." where id=$aid","Row");
-$tp->assign('a',$a);
-
-
-
 $recommend = get_index_recommend();
 $tp->assign('recommend',$recommend);
 $tp->assign('reconmend_count',count($recommend));
@@ -30,28 +24,28 @@ function get_index_slide(){
 
 
 
-//提取首页推荐图片 限制最多显示8个
+//提取首页推荐图片 限制最多显示10个
 function get_index_recommend(){
   		$sql = "select w.name,w.thumb_path,w.view_uuid,w.profile,w.browsing_num,w.praised_num,w.pk_user_main,p.avatar,u.nickname "."from ".$GLOBALS['Base']->table('worksmain')." as w ";
 	   	$sql .= "left join".$GLOBALS['Base']->table('user')." as u on w.pk_user_main=u.pk_user_main ";  
         $sql .= "left join".$GLOBALS['Base']->table('user_profile')." as p on w.pk_user_main=p.pk_user_main ";
-	       " where w.recommend=1 order by w.sort asc, w.pk_works_main desc limit 8";
+	       " where w.recommend=1 order by w.sort asc, w.pk_works_main desc limit 10";
 	$res = $GLOBALS['Db']->query($sql);
 	return $res;
 }
 
 
-$aid = intval($_REQUEST['aid']);
-$a = $Db->query("select * from ".$Base->table('article')." where id=$aid","Row");
-$tp->assign('a',$a);
+//$aid = intval($_REQUEST['aid']);
+//$a = $Db->query("select * from ".$Base->table('article')." where id=$aid","Row");
+//$tp->assign('a',$a);
 
 //提取首页广告
-function get_ad(){
-	$sql = "select ad_content,ad_link,ad_name,position,sort ".
-	 "from ".$GLOBALS['Base']->table('ad')." order by sort asc, id desc";
-	$res = $GLOBALS['Db']->query($sql);
-	return $res;
-}
+//function get_ad(){
+//	$sql = "select ad_content,ad_link,ad_name,position,sort ".
+//	 "from ".$GLOBALS['Base']->table('ad')." order by sort asc, id desc";
+//	$res = $GLOBALS['Db']->query($sql);
+//	return $res;
+//}
 
 
 ?>

@@ -4,13 +4,6 @@ if(!defined('IN_T')){
 	die('hacking attempt');
 }
 
-
-$aid = intval($_REQUEST['aid']);
-$a = $Db->query("select * from ".$Base->table('article')." where id=$aid","Row");
-$tp->assign('a',$a);
-
-
-
 $recommend = get_index_recommend();
 $tp->assign('recommend',$recommend);
 $tp->assign('reconmend_count',count($recommend));
@@ -30,20 +23,20 @@ function get_index_slide(){
 
 
 
-//提取首页推荐图片 显示12个
+//提取首页推荐图片 显示16个
 function get_index_recommend(){
   		$sql = "select w.name,w.thumb_path,w.view_uuid,w.profile,w.browsing_num,w.praised_num,w.pk_user_main,p.avatar,u.nickname "."from ".$GLOBALS['Base']->table('worksmain')." as w ";
 	   	$sql .= "left join".$GLOBALS['Base']->table('user')." as u on w.pk_user_main=u.pk_user_main ";  
         $sql .= "left join".$GLOBALS['Base']->table('user_profile')." as p on w.pk_user_main=p.pk_user_main ";
-	       " where w.recommend=1 order by w.sort asc, w.pk_works_main desc limit 12";
+	       " where w.recommend=1 order by w.sort asc, w.pk_works_main desc limit 16";
 	$res = $GLOBALS['Db']->query($sql);
 	return $res;
 }
 
 
-$aid = intval($_REQUEST['aid']);
-$a = $Db->query("select * from ".$Base->table('article')." where id=$aid","Row");
-$tp->assign('a',$a);
+//$aid = intval($_REQUEST['aid']);
+//$a = $Db->query("select * from ".$Base->table('article')." where id=$aid","Row");
+//$tp->assign('a',$a);
 
 //提取首页广告
 function get_ad(){
