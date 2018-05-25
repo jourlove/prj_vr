@@ -27,7 +27,7 @@ function get_index_slide(){
 function get_index_recommend(){
   		$sql = "select w.name,w.thumb_path,w.view_uuid,w.profile,w.browsing_num,w.praised_num,w.pk_user_main,p.avatar,u.nickname "."from ".$GLOBALS['Base']->table('worksmain')." as w ";
 	   	$sql .= "left join".$GLOBALS['Base']->table('user')." as u on w.pk_user_main=u.pk_user_main ";  
-        $sql .= "left join".$GLOBALS['Base']->table('user_profile')." as p on w.pk_user_main=p.pk_user_main ";
+        $sql .= "left join".$GLOBALS['Base']->table('user_profile')." as p on w.pk_user_main=p.pk_user_main ".
 	       " where w.recommend=1 order by w.sort asc, w.pk_works_main desc limit 16";
 	$res = $GLOBALS['Db']->query($sql);
 	return $res;
