@@ -87,9 +87,9 @@
 </div>
 
 
-<!-- {$_lang.cdn_host} ! -->
+
 <script>
-	var play_host = '/video/play.html?vid=';
+	var play_host = '{$_lang.cdn_host}video/play.html?vid=';
  	var page = 1;
  	var recommend = 1 ;
 	$(function(){

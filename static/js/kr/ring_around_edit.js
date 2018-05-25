@@ -165,8 +165,7 @@ function delete_source(img_id){
 }
 
 function preview_ring_around(id){
-    //cdn_host+
-    window.open("ring_around/index.html?id="+id+"");
+    window.open(cdn_host+"ring_around/index.html?id="+id+"");
 }
 
 //input失去焦点修改链接或名称

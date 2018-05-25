@@ -48,7 +48,7 @@
 	<tr style="text-align: center;">
 		<td><a target="_blank" href="/tour/{$v.view_uuid}">{$v.id}</a></td>
 		<td>{$v.pk_user_main}</td>
-		<td style="width: 110px;cursor: pointer;"><img src="{$v.thumb_path}" width="80" height="80" onclick="window.open('/video/play.html?vid={$v.id}')"></td>
+		<td style="width: 110px;cursor: pointer;"><img src="{$v.thumb_path}" width="80" height="80" onclick="window.open('{$_lang.cdn_host}/video/play.html?vid={$v.id}')"></td>
 		<td id="p_{$v.id}"><a target="_blank" href="/tour/{$v.view_uuid}">{$v.vname}</a></td>
 		<td>{$v.nickname}</td> 
 		<td style="width: 150px;">{$v.create_time}</td>
@@ -56,7 +56,7 @@
 		<td style="width:100px"><input type="text" class="inpEdit" value="{$v.sort}" onBlur="javascript:edit({$v.id},3,this);"/></td> 
 		<td style="width:100px"><input type="text" class="inpEdit" value="{$v.browsing_num}" onBlur="javascript:edit({$v.id},1,this);"/></td> 
 		<td style="width:100px"><input type="text" class="inpEdit" value="{$v.praised_num}" onBlur="javascript:edit({$v.id},2,this);"/></td> 
-		<td><a target="_blank" href="http://qr.liantu.com/api.php?w=300&m=10&text=/video/play.html?vid={$v.id}">打开查看</a></td>
+		<td><a target="_blank" href="http://qr.liantu.com/api.php?w=300&m=10&text={$_lang.cdn_host}/video/play.html?vid={$v.id}">打开查看</a></td> 
 		<td><a class="red" href="javascript:;" onClick="javascript:del_project({$v.id});">删除</a></td>
 	</tr>
 	{/foreach}

@@ -89,6 +89,6 @@ function update_videos(vid){
         })
 }
 function preview_videos(vid){
-    window.open("/video/play.html?vid="+vid);
+    window.open(cdn_host+"video/play.html?vid="+vid);
 }
 

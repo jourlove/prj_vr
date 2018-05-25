@@ -119,10 +119,10 @@
         <div class="col-md-10 advanced-setting-block" style="padding-top:10px">
             <form class="form-horizontal" method="post" role="form">
                 <div class="form-group">
-                    <label class="col-md-2 control-label"><a href="/video/play.html?vid={$video.id}"  target="_blank">作品地址</a></label>
+                    <label class="col-md-2 control-label"><a href="{$cdn_host}video/play.html?vid={$video.id}"  target="_blank">作品地址</a></label>
 
                     <div class="col-md-8">
-                        <input type="text" class="form-control" id="videolocation" name="videoname" value="/video/play.html?vid={$video.id}">
+                        <input type="text" class="form-control" id="videolocation" name="videoname" value="{$cdn_host}video/play.html?vid={$video.id}">
                     </div>
                     <div class="col-md-2">
                         <button class="btn copyable" type="button">复制</button>
@@ -132,7 +132,7 @@
                     <label class="col-md-2 control-label">嵌入到网站</label>
 
                     <div class="col-md-8">
-                        <input type="text" class="form-control" id="video_site" name="video_site" value='<iframe width="100%" height="500px" src="/video/play.html?vid={$video.id}" frameborder="no" border="0" ></iframe>'>
+                        <input type="text" class="form-control" id="video_site" name="video_site" value='<iframe width="100%" height="500px" src="{$cdn_host}video/play.html?vid={$video.id}" frameborder="no" border="0" ></iframe>'>
                     </div>
                     <div class="col-md-2">
                         <button class="btn copyable" type="button">复制</button>
