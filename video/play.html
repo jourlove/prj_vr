@@ -27,7 +27,7 @@
 		     var r = window.location.search.substr(1).match(reg);
 		     if(r!=null)return  unescape(r[2]); return null;
 		}
-		embedpano({swf:"tour.swf", xml:"/tour/tour_video.xml.php?vid="+GetQueryString('vid'), target:"pano", html5:"auto", mobilescale:1.0, passQueryParameters:true});
+		embedpano({swf:"tour.swf", xml:"http://118.126.88.104/tour/tour_video.xml.php?vid="+GetQueryString('vid'), target:"pano", html5:"auto", mobilescale:1.0, passQueryParameters:true});
 	</script>
 </div>
 <script type="text/javascript">
