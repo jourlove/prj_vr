@@ -86,8 +86,6 @@
 <!--一个卡片列表行结束-->
 </div>
 
-
-
 <script>
 	var play_host = '{$_lang.cdn_host}video/play.html?vid=';
  	var page = 1;

@@ -19,10 +19,11 @@ $tp->assign('video_top_ad',Transaction::get_ad_by_postion(4));
 //提取视频项目
 function get_video_projects($recommend,$page,$size){
 	$sql = "select v.id,v.vname,v.thumb_path,v.praised_num,v.browsing_num,v.pk_user_main,p.avatar,u.nickname  "."from ".$GLOBALS['Base']->table('video')." as v ";
-	$sql .= "left join".$GLOBALS['Base']->table('user')." as u on v.pk_user_main=u.pk_user_main ";  
+	$sql .= "left join".$GLOBALS['Base']->table('user')." as u on v.pk_user_main=u.pk_user_main ";
     $sql .= "left join".$GLOBALS['Base']->table('user_profile')." as p on v.pk_user_main=p.pk_user_main ";
+
 	if($recommend>0){
-		$sql .= "and recommend=1 ";
+		$sql .= "where recommend=1 ";
 		$GLOBALS['tp']->assign('recommend',1);
 	}
 	$sql.=' limit '.($page-1)*$size.','.$size;
