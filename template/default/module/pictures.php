@@ -33,9 +33,10 @@ function get_picture_projects($tag,$page,$size){
   	if($tag>0){
 		$sql .= "right join (select works_id from ".$GLOBALS['Base']->table('tag_works')." where tag_id=$tag group by works_id) as t on t.works_id=w.pk_works_main ";
 	}
-	if($tag==-1){
+	//网站上只显示推荐的
+	//if($tag==-1){
 		$sql .= "where w.recommend=1 ";
-	}
+	//}
 	$sql .= "order by w.pk_works_main desc limit ".($page-1)*$size.",".$size;;
 	$res = $GLOBALS['Db']->query($sql);
 	return $res;

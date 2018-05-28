@@ -17,9 +17,9 @@ if($author){
 	//全景视频
 	if($type=='video'){
 		$sql = 'select id,vname,thumb_path,browsing_num,praised_num from '.$GLOBALS['Base']->table('video').' '.
-		       'WHERE pk_user_main = '.$uid.' ORDER BY id DESC LIMIT '.($page-1)*$size.' , '.$size;
-		echo $Json->encode($Db->query($sql));
-		exit;
+            'WHERE pk_user_main = '.$uid.' ORDER BY id DESC LIMIT '.($page-1)*$size.' , '.$size;
+        echo $Json->encode($Db->query($sql));
+        exit;
 	}
 	//全景图片
 	else if($type=='pic'){

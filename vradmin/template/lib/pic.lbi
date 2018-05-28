@@ -39,7 +39,7 @@
 		<th>发布时间</th>
 		<th>是否允许推荐</th>
 		<th>是否推荐</th>
-		<th>排序&nbsp;&nbsp;<img src="/static/images/ico/notice.png" title="默认999,数字越小越靠前" style="cursor: pointer;"></th>
+		<th>排序&nbsp;&nbsp;<img src="/static/images/ico/notice.png" title="数字越小越靠前" style="cursor: pointer;"></th>
 		<th>浏览量</th>
 		<th>点赞量</th>
 		<th>二维码</th>

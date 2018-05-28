@@ -49,10 +49,10 @@
   <li {if $module=='theme'}class="cur"{/if}><a href="/{$_lang.admin_path}/?m=theme"><i class="theme"></i><em>设置模板</em></a></li>
  </ul>
   <ul>
-  <li {if $module=='slide'}class="cur"{/if}><a href="/{$_lang.admin_path}/?m=slide"><i class="show"></i><em>首页广告</em></a></li> 
+  <li {if $module=='slide'}class="cur"{/if}><a href="/{$_lang.admin_path}/?m=slide"><i class="show"></i><em>首页轮播图</em></a></li>
  </ul>
    <ul>
-  <li {if $module=='ad'}class="cur"{/if}><a href="/{$_lang.admin_path}/?m=ad"><i class="show"></i><em>广告管理</em></a></li> 
+  <li {if $module=='ad'}class="cur"{/if}><a href="/{$_lang.admin_path}/?m=ad"><i class="show"></i><em>合作伙伴</em></a></li>
  </ul>
  <ul>
   <li {if $module=='material'}class="cur"{/if}><a href="/{$_lang.admin_path}/?m=material"><i class="show"></i><em>图片素材</em></a></li>

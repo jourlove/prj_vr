@@ -244,7 +244,7 @@ background-color:#fafafa
 			'page':page
 		},function(res){
 			if (res.length==0) {
-				alert_notice("没有更多了",'default','bottom');
+				<!-- alert_notice("没有更多了",'default','bottom');-->
 			}else{
 				var html = '';
 				if(type == 'pic'){
@@ -292,8 +292,8 @@ background-color:#fafafa
 						'<div class="pano-item-info">'+
 						 <!-- 摄影师信息 -->
                          '<object>'+
-						 '<a class=" pano-item-author-avatar" target="_blank" href="/people/{$user.pk_user_main}" title="'+p.nickname+'">'+
-						'	<img class="lazy lazy-avatar lazy-loaded" src="'+p.avatar+'" data-original="'+p.avatar+'" data-was-processed="true" title="'+p.nickname+'">'+
+						 '<a class=" pano-item-author-avatar" target="_blank" href="/people/{$user.pk_user_main}" title="'+nickname+'">'+
+						'	<img class="lazy lazy-avatar lazy-loaded" src="'+avatar+'" data-original="'+avatar+'" data-was-processed="true" title="'+nickname+'">'+
 						 ' </a>'+
 						'	</object>'+
 						<!-- 作品标题 -->
@@ -654,7 +654,7 @@ background-color:#fafafa
 		},function(res){
 			var res = res.res;
 			if (res.length==0) {
-				alert_notice("没有更多了",'default','bottom');
+				<!-- alert_notice("没有更多了",'default','bottom'); -->
 			}
 			else{
 				var html = '';
