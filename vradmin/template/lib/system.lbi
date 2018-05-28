@@ -107,18 +107,39 @@
 	  </td>
 	 </tr>
 	 <tr>
+     	  <td align="right">开启多层切图</td>
+     	  <td>
+     		<label><input type="radio" name="multi_pano" {if $_lang.multi_pano}checked="checked"{/if} value="1"> 是</label>　
+     	    <label><input type="radio" name="multi_pano" {if !$_lang.multi_pano}checked="checked"{/if} value="0"> 否</label>
+     	    <!-- <span></span> -->
+     	  </td>
+     	 </tr>
+     	 <tr>
+          	  <td align="right">官网上是否只显示推荐作品(待开发）</td>
+          	  <td>
+          		<label><input type="radio" name="only_show_recom_works" {if $_lang.multi_pano}checked="checked"{/if} value="1"> 是</label>　
+          	    <label><input type="radio" name="only_show_recom_works" {if !$_lang.multi_pano}checked="checked"{/if} value="0"> 否</label>
+          	    <!-- <span></span> -->
+          	  </td>
+          </tr>
+	 <tr>
+	 <tr>
+     	  <td align="right">首页显示推荐作品数量-电脑端</td>
+     	  <td>
+     		    <input type="text" name="works_num_of_pc_home" value="{$_lang.qq}" size="80" class="inpMain">
+     	   </td>
+     </tr>
+     <tr>
+          <td align="right">首页显示推荐作品数量-手机端</td>
+          <td>
+                <input type="text" name="works_num_of_mobile_home" value="{$_lang.qq}" size="80" class="inpMain">
+            </td>
+     </tr>
+
 	  <td align="right">临时关闭站点</td>
 	  <td>
 		<label><input type="radio" name="tempclose" {if !$_lang.tempclose}checked="checked"{/if} value="0"> 否</label>　 
 	    <label><input type="radio" name="tempclose" {if $_lang.tempclose}checked="checked"{/if} value="1"> 是</label>
-	  </td>
-	 </tr>
-	 <tr>
-	  <td align="right">开启多层切图</td>
-	  <td>
-		<label><input type="radio" name="multi_pano" {if $_lang.multi_pano}checked="checked"{/if} value="1"> 是</label>　 
-	    <label><input type="radio" name="multi_pano" {if !$_lang.multi_pano}checked="checked"{/if} value="0"> 否</label>
-	    <!-- <span></span> -->
 	  </td>
 	 </tr>
 	 <tr>
