@@ -17,9 +17,7 @@ function openTopAdModal(){
 
 function build_top_ad(panoConfigData){
 	var topAdObj = {};
-	if(panoConfig.top_ad){
-		topAdObj = panoConfig.top_ad;
-	}
+	
 	var adcontent = $.trim($('#topAdModal input[name="adcontent"]').val());
 	topAdObj.allow_sys = $('#top_ad_type_wrap input[name="allow_sysad"]').is(':checked')?1:0;
 

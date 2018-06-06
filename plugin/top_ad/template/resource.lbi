@@ -10,22 +10,40 @@
 
 <script>
 var ad_sys_default = "{$smarty.session.view.top_ad.brief}";
+var ad_top_show;
 $(function(){
 	plugins_init_function.push(top_ad_init);
 })
 function top_ad_init(data,settings){
 	var data = data.top_ad;
 	if(data&&data.show!="0"){
-		$(".vrshow_container_logo").css('top','45px');
-		$(".vrshow_container_1_min").css('top','45px');
 		if (data.adcontent&&data.adcontent.length>0) {
-			$("#top_ad").show();
 			$("#top_ad marquee").text(data.adcontent);
-		}else if(ad_sys_default.length>0){
-			$("#top_ad").show();
+			// $("#top_ad").show();
+			ad_top_show=1;
+			$(".vrshow_container_logo").css('top','45px');
+			$(".vrshow_container_1_min").css('top','45px');
+			set_sytem_logo_style();
+		}else if(ad_sys_default.length>0&&data.allow_sys=='1'){
 			$("#top_ad marquee").text(ad_sys_default);
+			// $("#top_ad").show();
+			ad_top_show=1;
+			$(".vrshow_container_logo").css('top','45px');
+			$(".vrshow_container_1_min").css('top','45px');
+			set_sytem_logo_style();
+		}else{
+			$("#top_ad").hide();
 		}
-    }
+    }else{
+			$("#top_ad").hide();
+	}
+}
+function set_sytem_logo_style(){
+	if ($(document).width()<=768) {
+		$("#system_logo").css('width','120px').css('top','90px');
+	}else{
+		$("#system_logo").css('top','115px');
+	}
 }
 </script>
 

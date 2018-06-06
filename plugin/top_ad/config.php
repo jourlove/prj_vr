@@ -8,7 +8,7 @@ $plugins['top_ad'] = array (
   'view_container' => '',
   'view_sort' => 2,
   'view_resource' => 1,
-  'brief' => '顶部广告语测试',
+  'brief' => 'top_ad',
   'default' => 0,
 ) 
 ?>

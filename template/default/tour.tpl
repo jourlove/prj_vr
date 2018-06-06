@@ -39,13 +39,43 @@
             font-size: 15px;
             background: rgba(0,0,0,.3);
     	}
+      
+      {literal}
+    <script type="text/javascript">
+        $(function(){
+            setSize();
+        });
+        function setSize(){
+            var swidth= $(window).width();
+            var pwidth= $("#div_place").width();
+            var w=(swidth-pwidth)/2;
+            $(".vrshow_container_4_min").css("left",w);
+        }
+        $(window).resize(function(){
+            setSize();
+        });
+    </script>
+    {/literal}
+
+      
     </style>
 </head>
 <body>
 
     <script language="JavaScript" type="text/javascript" src="/tour/tour.js?v=121901"></script>
     <div id="fullscreenid" style="position:relative;width:100%; height:100%;">
-
+      
+      <div class="marquee" id="top_ad">
+			   <marquee  direction="left" behavior="scroll" scrollamount="5" scrolldelay="0" loop="-1" hspace="0" vspace="0"></marquee>
+			</div>
+		<div class="vrshow_tour_btn_wrap" id="tour_btn_wrap">
+              <div class="vrshow_tour_btn_oper" style="margin-right: 20px;">
+                 <span class="btn_tour_text" onClick="tour_guid_pause(this)">暂停</span>
+             </div>
+              <div class="vrshow_tour_btn_oper">
+                 <span class="btn_tour_text" onClick="tour_guid_stop()">停止</span>
+             </div>
+        </div>
 		
         <div id="panoBtns" style="display:none">
 			<div class="marquee" id="top_ad" style="display: none;">
