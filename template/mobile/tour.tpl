@@ -374,7 +374,7 @@ var pk_user_main = '{$pro.pk_user_main}';
 //组装分享的参数
 //title
 _title = '{$pro.name}';
-_content = '{$pro.profile_share}';
+_content = '{$pro.profile}';
 _imgUrl = '{$pro.thumb_path}';
 var is_moble = '{$is_moble}';
 </script>
