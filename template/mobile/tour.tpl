@@ -39,13 +39,43 @@
             font-size: 15px;
             background: rgba(0,0,0,.3);
     	}
+      
+      {literal}
+    <script type="text/javascript">
+        $(function(){
+            setSize();
+        });
+        function setSize(){
+            var swidth= $(window).width();
+            var pwidth= $("#div_place").width();
+            var w=(swidth-pwidth)/2;
+            $(".vrshow_container_4_min").css("left",w);
+        }
+        $(window).resize(function(){
+            setSize();
+        });
+    </script>
+    {/literal}
+
+      
     </style>
 </head>
 <body>
 
     <script language="JavaScript" type="text/javascript" src="/tour/tour.js?v=121901"></script>
     <div id="fullscreenid" style="position:relative;width:100%; height:100%;">
-
+      
+      <div class="marquee" id="top_ad">
+			   <marquee  direction="left" behavior="scroll" scrollamount="5" scrolldelay="0" loop="-1" hspace="0" vspace="0"></marquee>
+			</div>
+		<div class="vrshow_tour_btn_wrap" id="tour_btn_wrap">
+              <div class="vrshow_tour_btn_oper" style="margin-right: 20px;">
+                 <span class="btn_tour_text" onClick="tour_guid_pause(this)">暂停</span>
+             </div>
+              <div class="vrshow_tour_btn_oper">
+                 <span class="btn_tour_text" onClick="tour_guid_stop()">停止</span>
+             </div>
+        </div>
 		
         <div id="panoBtns" style="display:none">
 			<div class="marquee" id="top_ad" style="display: none;">
@@ -126,100 +156,12 @@
         {/foreach}
     </div>
 
-   <div class="modal fade"  id="rewardModal" data-keyboard="false" style="z-index:2002">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header" style="padding:5px 15px;">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
-            <h4 class="modal-title">打赏作者</h4>
-          </div>
-          <div class="modal-body">
-              <div class="input-group">
-			  	<span class="input-group-addon">&yen;</span>
-                <input type="number" id="reward_amount" maxlength="6" class="form-control" placeholder="0.00" style="text-align: right;">
-                <span class="input-group-addon">元</span>
-				<button type="button" style="float:right;margin-left:5px" class="btn btn-primary btn-block" onClick="confirmReward()">确定打赏</button>
-              </div>
-			 
-			  <div id="reward_lists"></div>
-			  <ul class="pager pager-pills" style="margin:10px 0 0 0">
-				<li class="previous"><a href="javascript:void(0);" id="reward_list_pre">« 上一页</a></li>
-				<li class="next"><a href="javascript:void(0);" id="reward_list_next">下一页 »</a></li>
-			  </ul>
-			   <script type="text/javascript">
-			  var pid = '{$pro.pk_works_main}';	 
-			  var reward_page = 1;
-			  {literal}
-			  function get_reward_lists(page){
-			  	  reward_page = page;
-			      $.post("/tour.php",{act:'reward_lists',pid:pid,page:page},function(data){
-				   var lists_content = '';
-				   for(var i=0;i<data.length;i++){		
-				   	var v = data[i];
-					lists_content += '<div style="font-size:12px;margin-top:10px">'+
-					                 '<img src="'+v.head_img+'" style="height:25px;border-radius:5px;">'+
-									 ' '+v.nickname+' <font color="red">'+v.create_time+'</font> 打赏了 <font color="red">'+v.amount+'</font> 元'+
-									 '</div>';
-				   }
-				   $("#reward_lists").html(lists_content);
-				  },"json");			  
-			  }
-			  
-			  $(document).ready(function(){
-			  	$("#reward_list_pre").click(function(){get_reward_lists(reward_page-1)});
-				$("#reward_list_next").click(function(){get_reward_lists(reward_page+1)});
-			  });
-			  {/literal}
-			  </script>
-          </div>
-        </div>
-      </div>
-    </div>
+
     
-  <div id="reward_lists"></div>
-  <ul class="pager pager-pills" style="margin:10px 0 0 0">
-	<li class="previous"><a href="javascript:void(0);" id="reward_list_pre">« 上一页</a></li>
-	<li class="next"><a href="javascript:void(0);" id="reward_list_next">下一页 »</a></li>
-  </ul>
-   <script type="text/javascript">
-  var pid = '{$pro.pk_works_main}';	 
-  var reward_page = 1;
-  {literal}
-  function get_reward_lists(page){
-	  reward_page = page;
-	  $.post("/tour.php",{act:'reward_lists',pid:pid,page:page},function(data){
-	   var lists_content = '';
-	   for(var i=0;i<data.length;i++){		
-		var v = data[i];
-		lists_content += '<div style="font-size:12px;margin-top:10px">'+
-						 '<img src="'+v.head_img+'" style="height:25px;border-radius:5px;">'+
-						 ' '+v.nickname+' <font color="red">'+v.create_time+'</font> 打赏了 <font color="red">'+v.amount+'</font> 元'+
-						 '</div>';
-	   }
-	   $("#reward_lists").html(lists_content);
-	  },"json");			  
-  }
-  
-  $(document).ready(function(){
-	$("#reward_list_pre").click(function(){get_reward_lists(reward_page-1)});
-	$("#reward_list_next").click(function(){get_reward_lists(reward_page+1)});
-  });
-  {/literal}
-  </script>
+
+
 	
-    <div class="modal fade"  id="rewardQrCodeModal" data-keyboard="false" style="z-index:2002">
-      <div class="modal-dialog">
-        <div class="modal-content" style="text-align: center;">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
-            <h4 class="modal-title">扫描或长按识别下图二维码完成打赏</h4>
-          </div>
-          <div class="modal-body">
-              <img src="" />
-          </div>
-        </div>
-      </div>
-    </div>
+
 	
 	
 	<div class="modal" id="video_player_modal" data-keyboard="false" style="z-index:2002">
@@ -232,141 +174,8 @@
         </div>
     	<div id="tour_guide_audio_wrap" style="display: none;"></div>
 
-        <style>
-    #redpack_view .modal-dialog{
-        width: 330px;
-        background-color: #e4312d;
-        position: relative;
-        padding: 50px 10px 30px 10px;
-        margin:auto;
-    }
-    #redpack_view .card_img{
-      position: absolute;
-        left: 40px;
-        top: -88px;
-    }
-    #redpack_view .card_close{
-      width: 25px;
-      height: 25px;
-      position: absolute;
-      right: 6px;
-      top: -13px;
-      background-color: #e4312d;
-      border-radius: 25px;
-      padding-left: 6px;
-      padding-top: 2px;
-      cursor: pointer;
-    }
-    #redpack_view .card_close .icon-times{
-      color:#fff;
-      font-size: 18px;
-    }
-    #redpack_view .card_wrap{
-      background-color: #fff;
-      width 100%;
-      min-height: 320px;
-      border-radius: 10px;
-    }
-    #redpack_view .card_title{
-      height: 50px;
-        background-color: #d5d5d5;
-        width: 100%;
-        border-radius: 10px;
-        text-align: center;
-        line-height: 50px;
-        position: relative;
-    }
-    #redpack_view .card_title span{
-      font-size: 18px;
-      font-weight: bold;
-      color: #434343;
-    }
-    #redpack_view .card_title div{
-      width: 15px;
-      height: 15px;
-      border-radius: 15px;
-      position: absolute;
-      background-color: #e4312d;
-      bottom: -8px;
-    }
-    #redpack_view .card_title .left_shade{
-      left: -7px;
-    }
-    #redpack_view .card_title .right_shade{
-      right: -7px;
-    }
-    #redpack_view .card_content {
-      margin-top: 20px;
-      padding: 20px;
-    }
-    #redpack_view .card_content .line{
-      height: 1px;
-        width: 30%;
-        border-bottom: 1px solid #e66565;
-    }
-    #redpack_view .card_content .card_sysm{
-      width: 30%;
-        height: 30px;
-        border: 1px solid #e66565;
-        margin-top: -15px;
-        border-radius: 30px;
-        text-align: center;
-        line-height: 30px;
-        margin-left: 5%;
-    }
-    #redpack_view .card_content .card_sysm span{
-      color:#fa9488;
-    }
-    #redpack_view .card_content_text{
-      margin-top: 25px;
-    }
-    #redpack_view .card_footer{
-      height: 50px;
-      border-top: 1px dotted;
-      line-height: 45px;
-      text-align: center;
-
-    }
-    @media screen and (min-width: 320px) and (max-width: 480px) {
-        #redpack_view .modal-dialog{
-          width: 90%;
-        }
-        .card_content_text{
-          max-height: 200px;
-          overflow: auto;
-        }
-    }
-  </style>
-  <!-- 红包 -->
-<div class="modal fade" id="redpack_view" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="redpack_view">
-  <div class="modal-dialog " style="margin-top: 100px;">
-      <div class="card_img"><img src="/static/images/kr/redpack_tit.png" ></div>
-      <div class="card_close" data-dismiss="modal" aria-label="Close"><i class="icon icon-times"></i></div>
-      <div class="card_wrap">
-        <div class="card_title">
-          <span id="redpack_title" style="font-size:21px;color:#E4312D"></span>
-          <div class="left_shade"></div>
-          <div class="right_shade"></div>
-        </div>
-        <div class="card_content">
-          <div class="line pull-left"></div>
-          <div class="pull-left card_sysm">
-            <span>领取规则</span>
-          </div>
-          <div class="line pull-right"></div>
-          <div class="card_content_text">
-          <p>红包由商户直接发出，即时到账</p>
-          <p>1个微信账号同1个红包只能领取1次</p>
-          <pre style="border:0px;background-color: #ffffff;color: grey;font-size: 13px;line-height: 25px;padding: 0;"></pre>
-          <a href="JavaScript:void(0);" class="btn btn-primary" style="width:100%;font-size:24px;" id="btn_receive_redpack">领取红包</a>
-          </div>
-        </div>
-        <div class="card_footer">
-          <span>领取过程中有任何疑问请联系管理员</span>
-        </div>
-      </div>
-  </div>
-</div>  
+       
+ 
 
 </body>
 <script type="text/javascript">
