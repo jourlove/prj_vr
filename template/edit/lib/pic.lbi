@@ -581,7 +581,7 @@
 				 	width: 50px;height: 20px;line-height: 20px;padding: 0;
 				 }
             </style>
-             <div class="eyes tie advanced-setting-background" style="width:420px;right:-450px;">
+             <div class="eyes tie advanced-setting-background" style="width:400px;right:-500px;">
                 <ul class="nav nav-tabs">
                     <li style="width:30%" class="active"><a href="#first_video_eye" data-toggle="tab">
                         视频贴片
