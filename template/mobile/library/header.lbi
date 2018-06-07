@@ -38,13 +38,13 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 <!-- 分享参数设置 -->
+<script language="JavaScript" type="text/javascript" src="/static/js/kr/jssdk.js"></script>
 <script type="text/javascript">
 
-    _title = '{$title}';
+    _title = '{$_lang.title}';
     _content = '{$_lang.desciption}';
     _imgUrl = window.location + 'static/images/logo.png';
 </script>
-
 
 </head>
 
