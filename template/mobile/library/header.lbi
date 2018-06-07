@@ -40,11 +40,11 @@
 <!-- 分享参数设置 -->
 <script language="JavaScript" type="text/javascript" src="/static/js/kr/jssdk.js"></script>
 <script type="text/javascript">
-
     _title = '{$_lang.title}';
     _content = '{$_lang.desciption}';
-    _imgUrl = window.location + 'static/images/logo.png';
+imgUrl = window.location + 'static/images/logo.png';
 </script>
+<script language="JavaScript" type="text/javascript" src="/static/js/kr/jssdk.js"></script>
 
 </head>
 
