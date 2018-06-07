@@ -44,7 +44,7 @@
     _content = '{$_lang.desciption}';
     _imgUrl = window.location + 'static/images/logo.png';
 </script>
-
+<script language="JavaScript" type="text/javascript" src="/static/js/kr/jssdk.js"></script>
 
 </head>
 
