@@ -35,9 +35,21 @@
 <script src="/template/{$_lang.moban}/js/lazyload.js"></script>
 <script src="/template/{$_lang.moban}/js/swiper.js"></script>
 <script language="JavaScript" type="text/javascript" src="/static/js/datetimepicker.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!-- 分享参数设置 -->
+<script type="text/javascript">
+
+    _title = '{$title}';
+    _content = '{$_lang.desciption}';
+    _imgUrl = window.location + 'static/images/logo.png';
+</script>
+
 
 </head>
 
 <body style="background-color:#fafafa;">
 
 {include file="{$_lang.moban}/library/nav.lbi"}
+
+
