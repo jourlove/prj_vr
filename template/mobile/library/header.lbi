@@ -42,7 +42,7 @@
 <script type="text/javascript">
     _title = '{$_lang.title}';
     _content = '{$_lang.desciption}';
-imgUrl = window.location + 'static/images/logo.png';
+    _imgUrl = window.location + 'static/images/logo.png';
 </script>
 <script language="JavaScript" type="text/javascript" src="/static/js/kr/jssdk.js"></script>
 
